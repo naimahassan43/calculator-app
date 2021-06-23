@@ -10,6 +10,12 @@ function displayItem(item) {
 
 }
 
+function addDecimal() {
+    if (!display.textContent.includes('.')) {
+        display.textContent = `${display.textContent}.`
+    }
+}
+
 function reset() {
     display.textContent = '0';
 }
@@ -18,17 +24,11 @@ function reset() {
 
 buttons.forEach((inputBtn) => {
     if (inputBtn.classList.length == 0) {
-        inputBtn.addEventListener('click', () => {
-            displayItem(inputBtn.value);
-        });
+        inputBtn.addEventListener('click', () => displayItem(inputBtn.value));
     } else if (inputBtn.classList.contains('operator')) {
-        inputBtn.addEventListener('click', () => {
-            displayItem(inputBtn.value);
-        });
+        inputBtn.addEventListener('click', () => displayItem(inputBtn.value));
     } else if (inputBtn.classList.contains('decimal')) {
-        inputBtn.addEventListener('click', () => {
-            displayItem(inputBtn.value);
-        })
+        inputBtn.addEventListener('click', () => addDecimal());
     }
 })
 
